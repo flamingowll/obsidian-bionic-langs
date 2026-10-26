@@ -1,26 +1,16 @@
-# BioRead
+# BioRead (Semibold & Multilingual Edition)
 
-An ADHD accessibility plugin that applies Bionic Reading formatting to notes in Obsidian's Reading/Preview mode.
+An Obsidian plugin that applies **Semibold (`font-weight: 600`)** Bionic Reading formatting to notes in both **Reading Mode** and **Live Preview** across **all languages (including Persian / فارسی, Arabic, and English)** without altering your custom Bold or Italic theme colors.
 
-## Features
-- **Automatic Formatting**: Applies bionic reading anchors (bolded word prefixes) to all notes viewed in Reading mode.
-- **Smart Skipping**: Ignores code blocks, inline code, scripts, and other non-prose elements.
-- **Mobile Support**: Works on both desktop and mobile Obsidian.
+## Key Improvements Over Original BioRead
+1. **Semibold (`600`) Instead of Bold (`700`)**: Uses `font-weight: 600` (configurable in settings from `500` to `700`) instead of heavy `700` bolding.
+2. **Preserves Normal, Bold, and Italic Colors**: Replaces `<b>` tags with `<span class="bionic-reader-prefix">` and enforces `color: inherit !important;` so custom theme colors for Bold (`<b>`/`<strong>`) and Italic (`<i>`/`<em>`) never bleed into normal words, and italic words keep their exact italic color.
+3. **Full Persian (فارسی) & Multilingual Unicode Support**:
+   - Uses Unicode property escapes (`\p{L}\p{M}`) instead of ASCII-only `\W` regexes.
+   - Properly handles Persian **Zero-Width Non-Joiner (`نیم‌فاصله`, `\u200C`)** in compound words like `می‌خواهم`, `می‌شود`, and `کتاب‌هایتان` without breaking letter joining or counting ZWNJ as an extra letter.
+   - Keeps Persian diacritics/harakat (`اعراب`, `هٔ`, `تشدید`) attached to their base letters.
+4. **Live Preview + Settings Tab + Toggle Command**: Works in both Reading Mode and Live Preview, with a Settings tab to customize weight and behavior.
 
 ## Installation
-
-### Manual Installation
-1. Download `main.js`, `manifest.json`, and `styles.css` from the latest release.
-2. Create a folder called `obsidian-bionic-reader` inside your vault's `.obsidian/plugins/` directory.
-3. Copy the downloaded files into that folder.
-4. Open Obsidian Settings → Community Plugins → Enable "BioRead".
-
-## How It Works
-The plugin hooks into Obsidian's Markdown post-processor pipeline. When you switch to Reading mode, it processes each text node and bolds the first portion of every word — creating visual fixation anchors that guide your eyes and improve reading speed.
-
-## Compatibility
-- **Minimum Obsidian Version**: 1.0.0
-- **Platforms**: Desktop (Windows, macOS, Linux) and Mobile (iOS, Android)
-
-## License
-MIT
+1. Copy `main.js`, `styles.css`, and `manifest.json` into your vault's `.obsidian/plugins/obsidian-bionic-reader/` (or `.obsidian/plugins/bioread/`) folder, **or** extract `obsidian-bionic-reader.zip` directly into `.obsidian/plugins/`.
+2. Reload Obsidian and enable **BioRead (Semibold & Multilingual)** in **Settings → Community Plugins**.
