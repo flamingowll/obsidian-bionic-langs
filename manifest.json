@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "minAppVersion": "1.0.0",
   "description": "Applies Semibold Bionic Reading formatting to Persian, English, and multilingual notes without altering custom bold/italic text colors.",
-  "author": "Nusheen",
+  "author": "flamingowll",
   "authorUrl": "https://github.com/flamingowll",
   "isDesktopOnly": false
 }
