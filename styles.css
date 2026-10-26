@@ -1,10 +1,28 @@
-/* BioRead Bionic Reader — Obsidian Plugin Styles */
+/* BioRead Semibold & Multilingual — Obsidian Plugin Styles */
 
-.bionic-reader-text b {
-    font-weight: 700;
+:root {
+    --bionic-reader-weight: 600;
+}
+
+/* Uses <span> instead of <b>/<strong> so custom theme colors for bold/italic are never triggered.
+   Explicitly inherits text color and style from the parent element. */
+.bionic-reader-text .bionic-reader-prefix,
+.cm-bionic-prefix {
+    font-weight: var(--bionic-reader-weight, 600) !important;
+    color: inherit !important;
+    font-style: inherit !important;
+    text-decoration: inherit !important;
+    background-color: transparent !important;
     opacity: 1;
+}
+
+body.bionic-reader-disabled .bionic-reader-text .bionic-reader-prefix,
+body.bionic-reader-disabled .cm-bionic-prefix {
+    font-weight: inherit !important;
 }
 
 .bionic-reader-text {
     line-height: inherit;
+    color: inherit;
+    font-style: inherit;
 }
